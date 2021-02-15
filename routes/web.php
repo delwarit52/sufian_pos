@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AuthorityController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,12 @@ Route::get('/package', [PackageController::class, 'index'])->name('package');
 Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');
 Route::post('/package/update', [PackageController::class, 'update'])->name('package.update');
 Route::get('/package/delete/{id}', [PackageController::class, 'delete'])->name('package.delete');
+
+// Expense Route 
+Route::get('/expense', [ExpenseController::class, 'index'])->name('expense');
+Route::post('/expense/store', [ExpenseController::class, 'store'])->name('expense.store');
+Route::post('/expense/update/{id}', [ExpenseController::class, 'update'])->name('expense.update');
+Route::get('/expense/delete/{id}', [ExpenseController::class, 'delete'])->name('expense.delete');
 
 // Customet Registration Form 
 Route::get('/customer/form', [CustomerController::class, 'index'])->name('customer.form');

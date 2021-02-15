@@ -163,6 +163,10 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('expense') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Expense List </span> </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('customer.form.view') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>Customer Registratiion</span> </a>
                             </li>
 
