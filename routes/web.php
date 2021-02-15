@@ -34,6 +34,10 @@ Route::get('/package/delete/{id}', [PackageController::class, 'delete'])->name('
 Route::get('/customer/form', [CustomerController::class, 'index'])->name('customer.form');
 Route::post('/customer/form/post', [CustomerController::class, 'store'])->name('customer.form.post');
 Route::get('/customer/form/view', [CustomerController::class, 'view'])->name('customer.form.view');
+Route::post('/customer/register', [CustomerController::class, 'customerregister'])->name('customer.register');
+Route::get('/customer/active/{id}', [CustomerController::class, 'customeractive'])->name('customer.active');
+Route::get('/customer/inactive/{id}', [CustomerController::class, 'customerinactive'])->name('customer.inactive');
+Route::get('/customer/delete/{id}', [CustomerController::class, 'customerdelete'])->name('customer.delete');
 
 // Admin Route 
 Route::get('/adminlist' , [AuthorityController::class , 'index'])->name('adminlist');
