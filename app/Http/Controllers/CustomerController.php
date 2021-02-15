@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\PackageModel;
 use Illuminate\Http\Request;
 use App\Models\CustomerModel;
-use App\Models\PackageModel;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -22,6 +24,7 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         CustomerModel::create($this->validation());
         return redirect()->route('customer.form')->with('succsess', 'add successfully');
     }
@@ -38,5 +41,51 @@ class CustomerController extends Controller
             'routeid' => 'required',
             'address' => 'required',
         ]);
+    }
+
+    public function customerregister(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'user_id' => 'required',
+            'password' => 'required',
+        ]);
+        
+        User::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->user_id,
+            'password' => Hash::make($request->password),
+        ]);
+
+        CustomerModel::find($request->id)->update([
+            'user_id' => $request->user_id,
+            'status' => 2,
+        ]);
+        return redirect()->route('customer.form.view')->with('succsess', 'add successfully');
+    }
+
+    public function customeractive($id)
+    {
+        CustomerModel::find($id)->update([
+            'status' => 3,
+        ]);
+        return back()->with('succsess', 'add successfully');
+    }
+
+    public function customerinactive($id)
+    {
+        CustomerModel::find($id)->update([
+            'status' => 2,
+        ]);
+        return back()->with('succsess', 'add successfully');
+    }
+
+    public function customerdelete($id)
+    {
+        CustomerModel::where('user_id', $id)->delete();
+        User::where('email',$id)->delete();
+        return back()->with('succsess', 'add successfully');
     }
 }
