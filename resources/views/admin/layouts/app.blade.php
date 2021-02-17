@@ -29,9 +29,6 @@
         <!-- form Uploads -->
         <link href="{{ asset('admin/assets/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
 
-        {{-- Date picker  --}}
-        <link href="{{ asset('admin/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
         <!-- App css -->
         <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -173,12 +170,26 @@
                                 <a href="{{ route('expense') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Expense List </span> </a>
                             </li>
 
-                            <li>
-                                <a href="{{ route('customer.form.view') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>Customer Registratiion</span> </a>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Customer </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="{{ route('customer.alllist') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>All</span> </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('customer.newlist') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>New Request</span> </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('customer.activelist') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>Active</span> </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('customer.inactivelist') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span>Inactive</span> </a>
+                                    </li>
+                                </ul>
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Reserved dropdown </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> User Interface </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="ui-buttons.html">Buttons</a></li>
                                     <li><a href="ui-cards.html">Cards</a></li>
@@ -198,8 +209,82 @@
                                 </ul>
                             </li>
 
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-texture"></i><span class="badge badge-warning pull-right">7</span><span> Forms </span> </a>
+                                <ul class="list-unstyled">
+                                    <li><a href="form-elements.html">General Elements</a></li>
+                                    <li><a href="form-advanced.html">Advanced Form</a></li>
+                                    <li><a href="form-validation.html">Form Validation</a></li>
+                                    <li><a href="form-wizard.html">Form Wizard</a></li>
+                                    <li><a href="form-fileupload.html">Form Uploads</a></li>
+                                    <li><a href="form-wysiwig.html">Wysiwig Editors</a></li>
+                                    <li><a href="form-xeditable.html">X-editable</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-list"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                	<li><a href="tables-basic.html">Basic Tables</a></li>
+                                    <li><a href="tables-datatable.html">Data Table</a></li>
+                                    <li><a href="tables-responsive.html">Responsive Table</a></li>
+                                    <li><a href="tables-editable.html">Editable Table</a></li>
+                                    <li><a href="tables-tablesaw.html">Tablesaw Table</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-donut-variant"></i><span> Charts </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="chart-flot.html">Flot Chart</a></li>
+                                    <li><a href="chart-morris.html">Morris Chart</a></li>
+                                    <li><a href="chart-chartist.html">Chartist Charts</a></li>
+                                    <li><a href="chart-chartjs.html">Chartjs Chart</a></li>
+                                    <li><a href="chart-other.html">Other Chart</a></li>
+                                </ul>
+                            </li>
+
                             <li>
-                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Reserved </span></a>
+                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Calendar </span></a>
+                            </li>
+
+                            <li>
+                                <a href="inbox.html" class="waves-effect"><i class="mdi mdi-email"></i><span class="badge badge-purple pull-right">New</span><span> Mail </span></a>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Pages </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="page-starter.html">Starter Page</a></li>
+                                    <li><a href="page-login.html">Login</a></li>
+                                    <li><a href="page-register.html">Register</a></li>
+                                    <li><a href="page-recoverpw.html">Recover Password</a></li>
+                                    <li><a href="page-lock-screen.html">Lock Screen</a></li>
+                                    <li><a href="page-confirm-mail.html">Confirm Mail</a></li>
+                                    <li><a href="page-404.html">Error 404</a></li>
+                                    <li><a href="page-500.html">Error 500</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span>Extra Pages </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="extras-projects.html">Projects</a></li>
+                                    <li><a href="extras-tour.html">Tour</a></li>
+                                    <li><a href="extras-taskboard.html">Taskboard</a></li>
+                                    <li><a href="extras-taskdetail.html">Task Detail</a></li>
+                                    <li><a href="extras-profile.html">Profile</a></li>
+                                    <li><a href="extras-maps.html">Maps</a></li>
+                                    <li><a href="extras-contact.html">Contact list</a></li>
+                                    <li><a href="extras-pricing.html">Pricing</a></li>
+                                    <li><a href="extras-timeline.html">Timeline</a></li>
+                                    <li><a href="extras-invoice.html">Invoice</a></li>
+                                    <li><a href="extras-faq.html">FAQ</a></li>
+                                    <li><a href="extras-gallery.html">Gallery</a></li>
+                                    <li><a href="extras-email-template.html">Email template</a></li>
+                                    <li><a href="extras-maintenance.html">Maintenance</a></li>
+                                    <li><a href="extras-comingsoon.html">Coming soon</a></li>
+                                </ul>
                             </li>
 
                         </ul>
@@ -225,8 +310,10 @@
                 <!-- Start content -->
                 <div class="content">
 
-                    @yield('section')
                     
+                    
+                    @yield('section')
+
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
@@ -248,11 +335,53 @@
                 </a>
                 <h4 class="">Notifications</h4>
                 <div class="notification-list nicescroll">
+                    
+                    <ul class="list-group list-no-border user-list">
+                        @foreach (newusernotification() as $user)
+                            <li class="list-group-item">
+                                <a href="{{ route('customer.newlist') }}" class="user-list-item">
+                                    <div class="icon bg-info">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <div class="user-desc">
+                                        <span class="name">{{ $user->name }}</span>
+                                        <span class="desc">Active  user</span>
+                                        <span class="time">{{ $user->created_at->diffForHumans() }}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    
                     <ul class="list-group list-no-border user-list">
                         <li class="list-group-item">
                             <a href="#" class="user-list-item">
                                 <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
+                                    <img src="{{ asset('admin/assets/images/users/avatar-2.jpg') }}" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="{{ asset('admin/assets/images/users/avatar-2.jpg') }}" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="{{ asset('admin/assets/images/users/avatar-2.jpg') }}" alt="">
                                 </div>
                                 <div class="user-desc">
                                     <span class="name">Michael Zenaty</span>
@@ -355,11 +484,6 @@
         <!-- Required datatable js -->
         <script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-        
-        {{-- Date picker js  --}}
-        <script src="{{ asset('admin/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-
         <!-- Buttons examples -->
         <script src="{{ asset('admin/assets/plugins/datatables/dataTables.buttons.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/buttons.bootstrap4.min.js') }}"></script>
@@ -372,10 +496,12 @@
         <script src="{{ asset('admin/assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
 
+        
+        @yield('section_script')
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#datatable').DataTable();
-                
+
                 //Buttons examples
                 var table = $('#datatable-buttons').DataTable({
                     lengthChange: false,
@@ -404,7 +530,6 @@
                 }
             });
         </script>
-        
-         @yield('section_script')
+
     </body>
 </html>
