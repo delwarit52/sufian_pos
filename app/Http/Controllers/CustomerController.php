@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\PackageModel;
 use Illuminate\Http\Request;
 use App\Models\CustomerModel;
+use App\Models\InvoiceModel;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
@@ -44,12 +45,21 @@ class CustomerController extends Controller
     }
 
     public function customerregister(Request $request)
-    {
+    {   
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
             'user_id' => 'required',
             'password' => 'required',
+        ]);
+
+        $customer = CustomerModel::find($request->id)->first();
+        $package = PackageModel::where('id', $customer->package_id)->first();
+        InvoiceModel::create([
+            'invoice_no' => "ASF-".$customer->id,
+            'package_title' => $package->package_title,
+            'package_price' => $package->package_price,
+            'cust_id' => $request->id,
         ]);
         
         User::create([
@@ -63,6 +73,8 @@ class CustomerController extends Controller
             'user_id' => $request->user_id,
             'status' => 2,
         ]);
+
+        
         return redirect()->route('customer.form.view')->with('succsess', 'add successfully');
     }
 
@@ -70,6 +82,9 @@ class CustomerController extends Controller
     {
         CustomerModel::find($id)->update([
             'status' => 3,
+        ]);
+        InvoiceModel::where('cust_id', $id)->update([
+            'status' => 1,
         ]);
         return back()->with('succsess', 'add successfully');
     }
@@ -79,13 +94,21 @@ class CustomerController extends Controller
         CustomerModel::find($id)->update([
             'status' => 2,
         ]);
+        InvoiceModel::where('cust_id', $id)->update([
+            'status' => 0,
+        ]);
         return back()->with('succsess', 'add successfully');
     }
 
     public function customerdelete($id)
     {
-        CustomerModel::where('user_id', $id)->delete();
-        User::where('email',$id)->delete();
+        $customer = CustomerModel::find($id);
+
+        if($customer->user_id){
+            User::where('email',$customer->user_id)->delete();
+        }
+        $customer->delete();
+
         return back()->with('succsess', 'add successfully');
     }
 }

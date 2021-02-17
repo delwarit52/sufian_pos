@@ -26,6 +26,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admindashboard');
 })->name('dashboard');
 
+
+Route::get('/customerdashboard', function () {
+    return view('customerdashboard');
+})->name('customer.dashboard');
+
+
 // Package Route 
 Route::get('/package', [PackageController::class, 'index'])->name('package');
 Route::post('/package/store', [PackageController::class, 'store'])->name('package.store');

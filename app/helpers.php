@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 function package($id)
 {
-    return App\Models\PackageModel::find($id)->first();
+    // return $id;
+    return App\Models\PackageModel::where('id', $id)->first();
 }
 

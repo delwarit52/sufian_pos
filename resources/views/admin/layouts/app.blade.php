@@ -155,6 +155,10 @@
                             </li>
 
                             <li>
+                                <a href="{{ route('customer.dashboard') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> User Dashboard </span> </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('package') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Package </span> </a>
                             </li>
 
