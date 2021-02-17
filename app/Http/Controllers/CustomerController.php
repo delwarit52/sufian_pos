@@ -17,11 +17,31 @@ class CustomerController extends Controller
         ]);
     }
 
-    public function view(){
+    public function customerall(){
         return view('admin.customerform',[
             'customer_froms' => CustomerModel::all(),
+            'heading' => "ALl Customer List"
         ]);
     }
+    public function customeractivelist(){
+        return view('admin.customerform',[
+            'customer_froms' => CustomerModel::where('status', 2)->get(),
+            'heading' => "Old Active Customer List"
+        ]);
+    }
+    public function customerinactivelist(){
+        return view('admin.customerform',[
+            'customer_froms' => CustomerModel::where('status', 3)->get(),
+            'heading' => "Inactive Customer List"
+        ]);
+    }
+    public function customernewlist(){
+        return view('admin.customerform',[
+            'customer_froms' => CustomerModel::where('status', 1)->get(),
+            'heading' => "New Request Customer List"
+        ]);
+    }
+    
 
     public function store(Request $request)
     {
@@ -75,7 +95,7 @@ class CustomerController extends Controller
         ]);
 
         
-        return redirect()->route('customer.form.view')->with('succsess', 'add successfully');
+        return redirect()->route('customer.activelist')->with('succsess', 'add successfully');
     }
 
     public function customeractive($id)
@@ -84,7 +104,7 @@ class CustomerController extends Controller
             'status' => 3,
         ]);
         InvoiceModel::where('cust_id', $id)->update([
-            'status' => 1,
+            'status' => 0,
         ]);
         return back()->with('succsess', 'add successfully');
     }
@@ -95,7 +115,7 @@ class CustomerController extends Controller
             'status' => 2,
         ]);
         InvoiceModel::where('cust_id', $id)->update([
-            'status' => 0,
+            'status' => 1,
         ]);
         return back()->with('succsess', 'add successfully');
     }

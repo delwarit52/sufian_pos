@@ -69,7 +69,7 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
+                        <h2 class="mb-0"> {{ $total_incomes }} </h2>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
+                        <h2 class="mb-0"> {{ $total_cost }} </h2>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,21 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
+                        <h2 class="mb-0"> {{ $total_incomes - $total_cost }} </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end col -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card-box">
+                <h4 class="header-title mt-0 m-b-30">Total Invoice</h4>
+                <div class="widget-chart-1">
+                    <div class="widget-chart-box-1">
+                        <i class="fas fa-file-invoice" style="font-size: 50px"></i>
+                    </div>
+                    <div class="widget-detail-1 text-center">
+                        <h2 class="mb-0"> {{ $invoices }} </h2>
                     </div>
                 </div>
             </div>
@@ -208,32 +222,37 @@
     </div>
     <!-- end row -->
 
-    <div class="row">
+    <div class="row bg-muted p-3 mb-3">
         <div class="col-sm-12">
             <div class="card-box">
+                
+
+                <h4 class="header-title m-t-0 m-b-30">Date Picker</h4>
 
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
+
                         <div class="p-20">
-                            <form class="form-horizontal">
+                            <form action="#" class="form-horizontal">
                                 <div class="form-group row">
-                                    <label class="col-lg-4 control-label">With all options</label>
-                                    <div class="col-lg-8">
-                                        <div id="reportrange" class="pull-right form-control">
-                                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                            <span></span>
+                                    <label class="control-label col-sm-4">Date Range</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-daterange input-group" id="date-range">
+                                            <input type="text" class="form-control" name="start" />
+                                            <span class="input-group-addon bg-primary b-0 text-white">to</span>
+                                            <input type="text" class="form-control" name="end" />
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-
                     </div><!-- end col -->
 
-                </div><!-- end row -->
+                </div><!-- end row-->
             </div>
         </div><!-- end col -->
     </div>
+    <!-- end row -->
     <!-- end row -->
 
 </div> <!-- container -->
