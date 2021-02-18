@@ -27,6 +27,7 @@ Route::get('/', function () {
 //     return view('admindashboard');
 // })->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::post('/get/filter/date', [DashboardController::class, 'filterdate']);
 
 
 Route::get('/customerdashboard', function () {

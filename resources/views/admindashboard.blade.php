@@ -2,9 +2,21 @@
 
 @section('section')
 <div class="container-fluid">
-
-
     <div class="row bg-muted p-3 mb-3">
+        <div class="col-xl-12">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <div class="input-daterange input-group" id="date-range">
+                        <input type="text" class="form-control" name="start_date" placeholder="Starting Date" id="start_date" value=""/>
+                        <span class="input-group-addon bg-primary b-0 text-white">to</span>
+                        <input type="text" class="form-control" name="end_date" placeholder="Ending Date" id="end_date" value=""/>
+                    </div>
+                    <div>
+                        <button type="submit" id="form_btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xl-3 col-md-6">
             <div class="card-box">
                 <h4 class="header-title mt-0 m-b-30">Total Customer</h4>
@@ -13,7 +25,7 @@
                         <i class="fas fa-user-tie" style="font-size: 50px"></i>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $customers }} </h2>
+                        <h2 class="mb-0" id="customers"> {{ $customers }} </h2>
                     </div>
                 </div>
             </div>
@@ -27,7 +39,7 @@
                         <i class="fas fa-box" style="font-size: 50px"></i>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $packages }} </h2>
+                        <h2 class="mb-0" id="packages"> {{ $packages }} </h2>
                     </div>
                 </div>
             </div>
@@ -41,7 +53,7 @@
                         <i class="fas fa-user-tie" style="font-size: 50px"></i>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $active_customers }} </h2>
+                        <h2 class="mb-0" id="active_customers"> {{ $active_customers }} </h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +67,7 @@
                         <i class="fas fa-user-tie" style="font-size: 50px"></i>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $inactive_customers }} </h2>
+                        <h2 class="mb-0" id="inactive_customers"> {{ $inactive_customers }} </h2>
                     </div>
                 </div>
             </div>
@@ -69,7 +81,7 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $total_incomes }} </h2>
+                        <h2 class="mb-0" id="total_incomes"> {{ $total_incomes }} </h2>
                     </div>
                 </div>
             </div>
@@ -83,7 +95,7 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $total_cost }} </h2>
+                        <h2 class="mb-0" id="total_cost"> {{ $total_cost }} </h2>
                     </div>
                 </div>
             </div>
@@ -97,7 +109,7 @@
                         <span style="font-size: 50px"> ৳ </span>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $total_incomes - $total_cost }} </h2>
+                        <h2 class="mb-0" id="profit"> {{ $total_incomes - $total_cost }} </h2>
                     </div>
                 </div>
             </div>
@@ -111,7 +123,7 @@
                         <i class="fas fa-file-invoice" style="font-size: 50px"></i>
                     </div>
                     <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $invoices }} </h2>
+                        <h2 class="mb-0" id="invoices"> {{ $invoices }} </h2>
                     </div>
                 </div>
             </div>
@@ -119,221 +131,57 @@
         <!-- end col -->
     </div>
     <!-- end row -->
-
-    <div class="row bg-muted p-3 mb-3">
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Customer</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <i class="fas fa-user-tie" style="font-size: 50px"></i>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $customers }} </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Package</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <i class="fas fa-box" style="font-size: 50px"></i>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $packages }} </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Active Customer</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <i class="fas fa-user-tie" style="font-size: 50px"></i>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $active_customers }} </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Inactive Customer</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <i class="fas fa-user-tie" style="font-size: 50px"></i>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> {{ $inactive_customers }} </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Earn Amount</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <span style="font-size: 50px"> ৳ </span>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Cost</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <span style="font-size: 50px"> ৳ </span>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-        <div class="col-xl-3 col-md-6">
-            <div class="card-box">
-                <h4 class="header-title mt-0 m-b-30">Total Profit</h4>
-                <div class="widget-chart-1">
-                    <div class="widget-chart-box-1">
-                        <span style="font-size: 50px"> ৳ </span>
-                    </div>
-                    <div class="widget-detail-1 text-center">
-                        <h2 class="mb-0"> 5000 </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end col -->
-    </div>
-    <!-- end row -->
-
-    <div class="row bg-muted p-3 mb-3">
-        <div class="col-sm-12">
-            <div class="card-box">
-                
-
-                <h4 class="header-title m-t-0 m-b-30">Date Picker</h4>
-
-                <div class="row">
-                    <div class="col-lg-8">
-
-                        <div class="p-20">
-                            <form action="#" class="form-horizontal">
-                                <div class="form-group row">
-                                    <label class="control-label col-sm-4">Date Range</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-daterange input-group" id="date-range">
-                                            <input type="text" class="form-control" name="start" />
-                                            <span class="input-group-addon bg-primary b-0 text-white">to</span>
-                                            <input type="text" class="form-control" name="end" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- end col -->
-
-                </div><!-- end row-->
-            </div>
-        </div><!-- end col -->
-    </div>
-    <!-- end row -->
-    <!-- end row -->
-
 </div> <!-- container -->
 @endsection
 
 @section('section_script')
-    
-    <script>
-        //Date range picker
-            $('.input-daterange-datepicker').daterangepicker({
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-secondary',
-                cancelClass: 'btn-primary'
+     <script>
+            // Date Picker
+            jQuery('#datepicker').datepicker();
+            jQuery('#datepicker-autoclose').datepicker({
+                autoclose: true,
+                todayHighlight: true
             });
-            $('.input-daterange-timepicker').daterangepicker({
-                timePicker: true,
-                format: 'MM/DD/YYYY h:mm A',
-                timePickerIncrement: 30,
-                timePicker12Hour: true,
-                timePickerSeconds: false,
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-secondary',
-                cancelClass: 'btn-primary'
+            jQuery('#datepicker-inline').datepicker();
+            jQuery('#datepicker-multiple-date').datepicker({
+                format: "yyyy-mm-dd",
+                clearBtn: true,
+                multidate: true,
+                multidateSeparator: ","
             });
-            $('.input-limit-datepicker').daterangepicker({
-                format: 'MM/DD/YYYY',
-                minDate: '06/01/2016',
-                maxDate: '06/30/2016',
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-secondary',
-                cancelClass: 'btn-primary',
-                dateLimit: {
-                    days: 6
-                }
+            jQuery('#date-range').datepicker({
+                format: "yyyy-mm-dd",
+                toggleActive: true
             });
 
-            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            //Ajax script
+            $(document).ready(function(){
+                 $('#form_btn').on('click',function(){
+                    var start_date = $('#start_date').val();
+                    var end_date = $('#end_date').val();
+                    //ajax setup
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
 
-            $('#reportrange').daterangepicker({
-                format: 'MM/DD/YYYY',
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment(),
-                minDate: '01/01/2016',
-                maxDate: '12/31/2016',
-                dateLimit: {
-                    days: 60
-                },
-                showDropdowns: true,
-                showWeekNumbers: true,
-                timePicker: false,
-                timePickerIncrement: 1,
-                timePicker12Hour: true,
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                opens: 'left',
-                drops: 'down',
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-success',
-                cancelClass: 'btn-secondary',
-                separator: ' to ',
-                locale: {
-                    applyLabel: 'Submit',
-                    cancelLabel: 'Cancel',
-                    fromLabel: 'From',
-                    toLabel: 'To',
-                    customRangeLabel: 'Custom',
-                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    firstDay: 1
-                }
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                    $.ajax({
+                        type :'POST',
+                        url : '/get/filter/date',
+                        data : {start_date:start_date , end_date:end_date},
+                        success : function (data) {
+                            document.getElementById('customers').innerHTML = data['customers'];
+                            document.getElementById('packages').innerHTML = data['packages'];
+                            document.getElementById('active_customers').innerHTML = data['active_customers'];
+                            document.getElementById('inactive_customers').innerHTML = data['inactive_customers'];
+                            document.getElementById('invoices').innerHTML = data['invoices'];
+                            document.getElementById('total_incomes').innerHTML = data['total_incomes'];
+                            document.getElementById('total_cost').innerHTML = data['total_cost'];
+                            document.getElementById('profit').innerHTML = data['total_incomes'] - data['total_cost'];
+                        }
+                    });
+                });
             });
-
-    </script>
-    
+        </script>
 @endsection

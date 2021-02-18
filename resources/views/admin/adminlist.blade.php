@@ -116,24 +116,21 @@
         <div class="col-12">
             <div class="card-box table-responsive">
                 <h1 class="m-t-0 header-title" style="font-size:40px; text-align:center; margin-bottom:50px !important;"><b>List Of Admin</b></h1>
-
                 <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
-                    <tr>
-                        <th class="align-middle text-center">Name</th>
-                        <th class="align-middle text-center">Email</th>
-                        <th class="align-middle text-center">Phone</th>
-                        <th class="align-middle text-center">User Type</th>
-                        <th class="align-middle text-center">Profile Image</th>
-                        <th class="align-middle text-center">Profit Percentage</th>
-                        @if (Auth::user()->type == 0)
-                            <th class="align-middle text-center">Action</th>
-                        @endif
-                        
-                    </tr>
+                        <tr>
+                            <th class="align-middle text-center">Name</th>
+                            <th class="align-middle text-center">Email</th>
+                            <th class="align-middle text-center">Phone</th>
+                            <th class="align-middle text-center">User Type</th>
+                            <th class="align-middle text-center">Profile Image</th>
+                            <th class="align-middle text-center">Profit Percentage</th>
+                            @if (Auth::user()->type == 0)
+                                <th class="align-middle text-center">Action</th>
+                            @endif
+                            
+                        </tr>
                     </thead>
-
-
                     <tbody>
                         @if (count($users)>0)
                             @foreach($users as $user)

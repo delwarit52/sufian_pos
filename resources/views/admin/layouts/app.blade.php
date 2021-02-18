@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
         <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
 
         <title>Adminto - Responsive Admin Dashboard Template</title>
@@ -23,12 +24,17 @@
         <!-- DataTables -->
         <link href="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('admin/assets/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
         <!-- Responsive datatable examples -->
         <link href="{{ asset('admin/assets/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- form Uploads -->
         <link href="{{ asset('admin/assets/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
 
+        {{-- Date picker  --}}
+        <link href="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
         <!-- App css -->
         <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -305,15 +311,9 @@
             <!-- ============================================================== -->
             <div class="content-page">
 
-                
-
                 <!-- Start content -->
                 <div class="content">
-
-                    
-                    
                     @yield('section')
-
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
@@ -401,6 +401,17 @@
         <!-- Required datatable js -->
         <script src="{{ asset('admin/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+        
+        {{-- Date picker js  --}}
+        <script src="{{ asset('assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}" type="text/javascript"></script>
+
+        <script src="{{ asset('assets/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+        
+        <script src="{{ asset('assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+
+        <script src="{{ asset('admin/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
         <!-- Buttons examples -->
         <script src="{{ asset('admin/assets/plugins/datatables/dataTables.buttons.min.js') }}"></script>
         <script src="{{ asset('admin/assets/plugins/datatables/buttons.bootstrap4.min.js') }}"></script>
@@ -448,5 +459,6 @@
             });
         </script>
 
+         @yield('section_script')
     </body>
 </html>
