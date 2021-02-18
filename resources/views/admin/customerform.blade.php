@@ -55,7 +55,10 @@
                                     <a class="btn btn-sm btn-primary" href="">Aleart</a>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('customer.delete',$customer_from->user_id) }}">Delete</a>
+                                    @if ( $customer_from->status == 1 || $customer_from->status == 3)
+                                    <a class="btn btn-sm btn-primary" href="{{ route('customer.delete',$customer_from->id) }}">Delete</a>
+                                    @endif
+                                    
                                 </td>
                             </tr>
 
