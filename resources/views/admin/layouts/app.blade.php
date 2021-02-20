@@ -197,6 +197,9 @@
                             <li>
                                 <a href="{{ route('withdraw') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Withdraw List </span> </a>
                             </li>
+                            <li>
+                              <a href="{{ route('invioce') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Invioce </span> </a>
+                            </li>
 
                         </ul>
                         <div class="clearfix"></div>
