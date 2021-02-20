@@ -6,6 +6,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AuthorityController;
+use App\Http\Controllers\InvioceController;
 
 
 /*
@@ -64,3 +65,7 @@ Route::get('/adminlist' , [AuthorityController::class , 'index'])->name('adminli
 Route::post('/createadmin' , [AuthorityController::class , 'create'])->name('create.newadmin');
 Route::post('/editadmin/{id}' , [AuthorityController::class , 'edit'])->name('admin.edit');
 Route::get('/deleteadmin/{id}' , [AuthorityController::class , 'delete'])->name('admin.delete');
+
+// Invioce Route 
+Route::get('/invioce', [InvioceController::class, 'index'])->name('invioce');
+Route::get('/single/invioce/{id}', [InvioceController::class, 'singleinvioce'])->name('singleinvioce');
