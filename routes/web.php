@@ -6,7 +6,9 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AuthorityController;
+use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\InvioceController;
+
 
 
 /*
@@ -66,6 +68,14 @@ Route::post('/createadmin' , [AuthorityController::class , 'create'])->name('cre
 Route::post('/editadmin/{id}' , [AuthorityController::class , 'edit'])->name('admin.edit');
 Route::get('/deleteadmin/{id}' , [AuthorityController::class , 'delete'])->name('admin.delete');
 
+
+
+// withdraw Route
+Route::get('/withdraw' , [WithdrawController::class , 'index'])->name('withdraw');
+Route::post('/withdrawamount/{id}' , [WithdrawController::class , 'amountadd'])->name('withdraw.amountadd');
+Route::get('/deletewithdraw/{id}' , [WithdrawController::class , 'delete'])->name('withdraw.delete');
+
 // Invioce Route 
 Route::get('/invioce', [InvioceController::class, 'index'])->name('invioce');
 Route::get('/single/invioce/{id}', [InvioceController::class, 'singleinvioce'])->name('singleinvioce');
+

@@ -195,7 +195,10 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('invioce') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Invioce </span> </a>
+                                <a href="{{ route('withdraw') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Withdraw List </span> </a>
+                            </li>
+                            <li>
+                              <a href="{{ route('invioce') }}" class="waves-effect"><i class="mdi mdi-format-font"></i> <span> Invioce </span> </a>
                             </li>
 
                         </ul>
@@ -335,8 +338,10 @@
             $(document).ready(function() {
                 $('#datatable').DataTable();
 
+                $('#amounttable').DataTable();
+
                 //Buttons examples
-                var table = $('#datatable-buttons').DataTable({
+                var table = $('#datatable-buttons', '#amounttable').DataTable({
                     lengthChange: false,
                     buttons: ['copy', 'excel', 'pdf']
                 });
