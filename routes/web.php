@@ -6,6 +6,8 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\AuthorityController;
+use App\Http\Controllers\WithdrawController;
+
 
 
 /*
@@ -64,3 +66,10 @@ Route::get('/adminlist' , [AuthorityController::class , 'index'])->name('adminli
 Route::post('/createadmin' , [AuthorityController::class , 'create'])->name('create.newadmin');
 Route::post('/editadmin/{id}' , [AuthorityController::class , 'edit'])->name('admin.edit');
 Route::get('/deleteadmin/{id}' , [AuthorityController::class , 'delete'])->name('admin.delete');
+
+
+// withdraw Route
+Route::get('/withdraw' , [WithdrawController::class , 'index'])->name('withdraw');
+// Route::post('/createwithdraw' , [WithdrawController::class , 'create'])->name('create.newwithdraw');
+Route::post('/withdrawamount/{id}' , [WithdrawController::class , 'amountadd'])->name('withdraw.amountadd');
+Route::get('/deletewithdraw/{id}' , [WithdrawController::class , 'delete'])->name('withdraw.delete');

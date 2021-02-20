@@ -53,4 +53,18 @@ function newusernotification()
     // return $newusers = App\Models\CustomerModel::orderBy('updated_at', 'desc')->get();
 }
 
+function getAmount($id)
+{
+    // $users = User::join('withdraw_models', 'users.id', '=', 'withdraw_models.user_id')
+    //            ->get('amount');
+    return App\Models\WithdrawModel::where('user_id', $id)->sum('amount');
+}
+
+function getAllWithdraw($id)
+{
+    // $users = User::join('withdraw_models', 'users.id', '=', 'withdraw_models.user_id')
+    //            ->get('amount');
+    return App\Models\WithdrawModel::where('user_id', $id)->get();
+}
+
 
